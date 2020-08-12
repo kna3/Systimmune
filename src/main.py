@@ -13,3 +13,6 @@ mycursor.execute("USE CarDealership")
 
 #Creating the Table Vehicle in CarDealership Database
 mycursor.execute("CREATE TABLE IF NOT EXISTS Vehicle (vehicle_id INT(20) PRIMARY KEY,vehicle_name VARCHAR(30) NOT NULL,vehicle_model INT(4) NOT NULL,miles_completed INT(15) default 0,vehicle_price DECIMAL(10,2) NOT NULL )")
+
+#Creating the Table Inventory in CarDealership Database
+mycursor.execute("CREATE TABLE IF NOT EXISTS Inventory (inventory_id INT(20) NOT NULL,vehicle_id INT(30) NOT NULL,is_sold boolean default false,vehicle_state ENUM('New','Used') NOT NULL,inventory_description VARCHAR(50),inventory_title ENUM('Clean','Rebuilt','Salvage'),branch_location VARCHAR(30) NOT NULL)")
