@@ -25,3 +25,19 @@ mycursor.execute("CREATE TABLE IF NOT EXISTS Branch (branch_location VARCHAR(30)
 
 #Creating the Table CarSold in CarDealership Database
 mycursor.execute("CREATE TABLE IF NOT EXISTS CarSold (sale_id INT(30),vehicle_id INT(20), salesperson_id INT(20),customer_id INT(20),date_sold DATE NOT NULL)")
+
+mycursor.execute("SET @@GLOBAL.local_infile = 1")
+
+#Populate data from local csv files into table
+mycursor.execute("LOAD DATA LOCAL INFILE 'vehicle.csv' INTO TABLE Vehicle FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES (vehicle_id, vehicle_name, vehicle_model, miles_completed, vehicle_price)")
+
+mycursor.execute("LOAD DATA LOCAL INFILE 'inventory.csv' INTO TABLE Inventory FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES (inventory_id, vehicle_id, is_sold, vehicle_state, inventory_description, inventory_title, branch_location)")
+
+mycursor.execute("LOAD DATA LOCAL INFILE 'salesperson.csv' INTO TABLE Salesperson FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES (salesperson_id, salesperson_name, salesperson_phone, branch_location)")
+
+mycursor.execute("LOAD DATA LOCAL INFILE 'branch.csv' INTO TABLE Branch FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES (branch_location, branch_code)")
+
+
+#Close connection
+mycursor.close()
+my.commit()
