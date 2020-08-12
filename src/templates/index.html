@@ -1,0 +1,101 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="http://sstatic.net/so/favicon.ico">
+
+  <title>Car Dealership</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/starter-template/">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom styles for this template -->
+  <!-- <link href="starter-template.css" rel="stylesheet"> -->
+  <link href="../static/css/index.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="bg-dark" id="nav">
+    <ul class="nav justify-content-center">
+     <li class="nav-item active">
+       <h4 class="text-light">Verma Car Dealer</h4>
+     </li>
+     <li class="nav-item active">
+      <i class="fas fa-car fa-2x"></i>
+    </li>
+  </ul>
+</div>
+
+<main role="main" class="container d-flex justify-content-center flex-column">
+  <form method="POST" action="/sendDate">
+    <label for="start">Start date:</label>
+    <input type="date" id="date" name="start_date"
+    value="2018-07-22"
+    min="2009-01-01" >
+
+    <label for="start">End date:</label>
+
+    <input type="date" id="date" name="end_date"
+    value="2018-07-22"
+    min="2009-01-01" >
+    <input type="submit" value="Submit" class="btn btn-dark"></input>
+
+  </form>
+
+
+  <div class="starter-template">
+	{% if modelName %}
+    <h1>Top Car of the month</h1>
+    <p class="lead">{{modelName}}</p>
+	{% endif %}
+	{% if salesmanName %}
+    <h1>Top Salesman of the month</h1>
+    <p class="lead">{{salesmanName}}</p>
+	{% endif %}
+  </div>
+
+</main><!-- /.container -->
+
+<div id="footer">
+  <div class="container d-flex flex-column">
+   <div class="container d-flex flex-row justify-content-between">
+    <div><img src="../static/icons/honda.svg" alt="Honda Logo"></div>
+    <div><img src="../static/icons/audi.svg" alt="Audi Logo"></div>
+    <div><img src="../static/icons/ferrari.svg" alt="ferrari Logo"></div>
+    <div><img src="../static/icons/bmw.svg" alt="BMW Logo"></div>
+    <div><img src="../static/icons/porsche.svg" alt="Porsche Logo"></div>
+    <div><img src="../static/icons/ford.svg" alt="Ford Logo"></div>
+    <div><img src="../static/icons/tesla.svg" alt="Tesla Logo"></div>
+  </div>
+  <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-column" id="contactUs">
+      <div>Contact us</div>
+      <div><i class="fas fa-phone"></i> +1(607)-232-4459</div>
+    </div>
+    <div class="d-flex flex-column">
+      <div>Email</div>
+      <div><i class="far fa-envelope"></i> karanverma357@gmail.com</div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+    </html>
