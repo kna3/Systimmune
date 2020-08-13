@@ -46,15 +46,27 @@ def create():
 def getBestSalesperson(startDate, endDate):
 	query = f"select s.salesperson_name, count(*) as ct from carsold c join salesperson s on c.salesperson_id = s.salesperson_id where c.date_sold between '{startDate}' and '{endDate}' group by c.salesperson_id having ct = (select max(ct) from (select count(*) as ct from carsold where date_sold between '{startDate}' and '{endDate}' group by salesperson_id) as a)"
 	mycursor.execute(query)
-	myresult = mycursor.fetchall()
-	return myresult;
+	result = mycursor.fetchall()
+	salesPersonArray = []
+	content = {}
+	for res in result:
+		content = {'salesPersonName': res[0], 'count': res[1]}
+		salesPersonArray.append(content)
+		content = {}
+	return salesPersonArray
 
 #Function to find the top Car Model for the specific month
 def getTopModel(startDate, endDate):
 	query = f"select vehicle_name, vehicle_model, count(*) as c from vehicle v join carsold cs where v.vehicle_id = cs.vehicle_id and date_sold between '{startDate}' and '{endDate}' group by vehicle_name, vehicle_model having c = (select max(c) from (select count(*) as c from carsold where date_sold between '{startDate}' and '{endDate}'  group by vehicle_id) as a)"
 	mycursor.execute(query)
-	myresult = mycursor.fetchall()
-	return myresult;
+	result = mycursor.fetchall()
+	modelArray = []
+	content = {}
+	for res in result:
+		content = {'vehicleName': res[0], 'vehicleModel': res[1], 'vehicleCount': res[2]}
+		modelArray.append(content)
+		content = {}
+	return modelArray
 
 #Close connection
 mycursor.close()
