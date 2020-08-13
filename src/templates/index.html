@@ -23,51 +23,69 @@
 
 </head>
 
-<body>
-  <div class="bg-dark" id="nav">
-    <ul class="nav justify-content-center">
-     <li class="nav-item active">
-       <h4 class="text-light">Verma Car Dealer</h4>
-     </li>
-     <li class="nav-item active">
-      <i class="fas fa-car fa-2x"></i>
-    </li>
-  </ul>
-</div>
+<body class="site">
+  <header>
+      <div class="bg-dark" id="nav">
+        <ul class="nav justify-content-center">
+         <li class="nav-item active">
+           <h4 class="text-light">Verma Car Dealer</h4>
+         </li>
+         <li class="nav-item active">
+          <i class="fas fa-car fa-2x"></i>
+        </li>
+      </ul>
+    </div>
+  </header>
 
-<main role="main" class="container d-flex justify-content-center flex-column">
-  <form method="POST" action="/sendDate">
-    <label for="start">Start date:</label>
-    <input type="date" id="date" name="start_date"
-    value="2018-07-22"
-    min="2009-01-01" >
+    <main role="main" class="container d-flex align-items-center flex-column Site-content">
+      <form method="POST" action="/sendDate">
+      <label for="start">Start date:</label>
+      <input type="date" id="date" name="start_date"
+      value="2020-03-01"
+      min="2009-01-01" >
 
-    <label for="start">End date:</label>
+      <label for="start">End date:</label>
 
-    <input type="date" id="date" name="end_date"
-    value="2018-07-22"
-    min="2009-01-01" >
-    <input type="submit" value="Submit" class="btn btn-dark"></input>
+      <input type="date" id="date" name="end_date"
+      value="2020-03-30"
+      min="2009-01-01" >
+      <input type="submit" value="Submit" class="btn btn-dark"></input>
 
-  </form>
+      </form>
 
 
-  <div class="starter-template">
-	{% if modelName %}
-    <h1>Top Car of the month</h1>
-    <p class="lead">{{modelName}}</p>
-	{% endif %}
-	{% if salesmanName %}
-    <h1>Top Salesman of the month</h1>
-    <p class="lead">{{salesmanName}}</p>
-	{% endif %}
-  </div>
+      <div class="starter-template">
+        {% if hasTopModel == True %}
+          <h1>Top Car of the month</h1>
+            <p> No car was sold in this period</p>
+        {% endif %}
+        {% if hasBestSalesPerson == True %}
+          <h1>Top Salesman of the month</h1>
+            <p> No car was sold in this period  and best Sales Person cannot be calculated</p>
+        {% endif %}
+      {% if modelName %}
+      <h1>Top Car of the month</h1>
+        {% for data in modelName%}
+          <p><span class="font-weight-bold">{{data['vehicleName']}} {{data['vehicleModel']}} </span>
+          Cars sold: {{data['vehicleCount']}}</p>
+        {% endfor %}
+      {% endif %}
+      
+      {% if salesmanName %}
+        <h1>Top Salesman of the month</h1>
+        {% for data in salesmanName%}
+          <p><span class="font-weight-bold">{{data['salesPersonName']}} </span> 
+          Total Cars sold: {{data['count']}}</p>
+        {% endfor %}
+      {% endif %}
+      </div>
 
-</main><!-- /.container -->
+    </main><!-- /.container -->
 
-<div id="footer">
-  <div class="container d-flex flex-column">
-   <div class="container d-flex flex-row justify-content-between">
+  <footer>
+  <div id="footer">
+    <div class="container d-flex flex-column">
+     <div class="container d-flex flex-row justify-content-between">
     <div><img src="../static/icons/honda.svg" alt="Honda Logo"></div>
     <div><img src="../static/icons/audi.svg" alt="Audi Logo"></div>
     <div><img src="../static/icons/ferrari.svg" alt="ferrari Logo"></div>
@@ -75,8 +93,8 @@
     <div><img src="../static/icons/porsche.svg" alt="Porsche Logo"></div>
     <div><img src="../static/icons/ford.svg" alt="Ford Logo"></div>
     <div><img src="../static/icons/tesla.svg" alt="Tesla Logo"></div>
-  </div>
-  <div class="d-flex flex-row justify-content-between">
+    </div>
+    <div class="d-flex flex-row justify-content-between">
     <div class="d-flex flex-column" id="contactUs">
       <div>Contact us</div>
       <div><i class="fas fa-phone"></i> +1(607)-232-4459</div>
@@ -85,10 +103,11 @@
       <div>Email</div>
       <div><i class="far fa-envelope"></i> karanverma357@gmail.com</div>
     </div>
+    </div>
   </div>
+  </footer>
+
 </div>
-
-
 
     <!-- Bootstrap core JavaScript
       ================================================== -->
