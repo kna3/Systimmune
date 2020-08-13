@@ -1,0 +1,11 @@
+inventory_id,vehicle_id,is_sold,vehicle_state,inventory_description,inventory_title,branch_location
+1,1,1,Used,well maintained,Clean,Dallas
+2,2,1,New,new model,Clean,Binghamton
+3,3,1,New,good condition,Rebuilt,San Diego
+4,10,0,New,un-used,Clean,Boston
+5,5,1,Used,good use,Clean,Boston
+6,11,0,New,fast,Clean,San Diego
+7,7,1,Used,small trunk,Clean,Carolina
+8,8,0,Used,nice pickup,Rebuilt,Detriot
+9,4,1,Used,old but solid,Rebuilt,Buffalo
+10,6,1,Used,nice shape,Salvage,Detriot

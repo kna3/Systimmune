@@ -1,0 +1,4 @@
+[My_Config]
+USERNAME = root
+HOST = localhost
+PASSWORD = 1234

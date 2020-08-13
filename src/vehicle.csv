@@ -1,0 +1,12 @@
+vehicle_id,vehicle_name,vehicle_model,miles_completed,vehicle_price
+1,Mustang,2019,2000,12000
+2,Civic,2020,0,25000
+3,BMW,2018,30000,23000
+4,Dodge,2010,29000,10000
+5,Audi,2009,89800,7000
+6,Merz,2014,25000,9600
+7,Ford,2016,10000,6000
+8,Mustang,2020,2000,12000
+9,BMW,2017,2000,14000
+10,Civic,2016,0,21000
+11,Civic,2018,0,22000
